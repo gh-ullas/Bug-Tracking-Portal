@@ -19,4 +19,6 @@ public class BugResponse {
     private String reportedBy;
     private String stepsToReproduce;
     private LocalDateTime createdAt;
+    private String assignedTo;
+
 }

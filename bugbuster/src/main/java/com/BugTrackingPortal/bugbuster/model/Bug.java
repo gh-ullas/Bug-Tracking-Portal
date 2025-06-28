@@ -6,6 +6,9 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Entity
 @Getter
@@ -41,4 +44,18 @@ public class Bug {
     @ManyToOne
     @JoinColumn(name = "reported_by")
     private User reportedBy;
+
+    @ManyToOne
+    @JoinColumn(name = "assigned_to")
+    private User assignedTo;
+
+    @ElementCollection
+    @CollectionTable(name = "bug_comments", joinColumns = @JoinColumn(name = "bug_id"))
+    private List<Comment> comments = new ArrayList<>();
+
+    @Getter
+    @Setter
+    @Temporal(TemporalType.TIMESTAMP)
+    private Date updatedAt;
+
 }
