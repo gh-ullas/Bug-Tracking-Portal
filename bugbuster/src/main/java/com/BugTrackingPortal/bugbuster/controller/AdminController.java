@@ -30,9 +30,5 @@ public class AdminController {
     ) {
         return ResponseEntity.ok(bugService.assignBugToDeveloper(bugId, request.getDeveloperId()));
     }
-//    @GetMapping("/developers")
-//    public ResponseEntity<List<User>> getAllDevelopers() {
-//        return ResponseEntity.ok(userService.getAllDevelopers());
-//    }
 
 }
